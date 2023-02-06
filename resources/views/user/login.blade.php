@@ -11,6 +11,12 @@
             <span>Complete the form below to login to the system</span>
         </div>
 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                {{ $message }}
+            </div>       
+        @endif
+
         <form method="POST" action="{{ route('authenticate') }}" autocomplete="off">
 
             @csrf
