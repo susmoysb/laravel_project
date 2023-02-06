@@ -78,7 +78,7 @@ class UserController extends Controller
     {
         if(Auth::check())
         {
-            return view('user.dashboard');
+            return view('user.dashboard')->with('users', User::all());
         }
         
         return redirect()->route('login')
