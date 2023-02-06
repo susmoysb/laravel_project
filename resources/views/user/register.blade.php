@@ -10,7 +10,7 @@
             <h1>Registration Form</h1>
         </div>
 
-        <form method="POST" action="{{ route('authenticate') }}" autocomplete="off">
+        <form method="POST" action="{{ route('store') }}" autocomplete="off">
 
             @csrf
 
