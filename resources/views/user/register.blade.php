@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container-lg col-lg-6 user_create px-4">
+    <div class="container-lg col-lg-6 user_create px-4 registration_form">
 
         <div class="card-header text-center mb-2 mt-2 pt-2">
             <h1>Registration Form</h1>
@@ -57,10 +57,14 @@
             <div class="row mb-3">
                 <label for="phone" class="col-md-3 col-form-label col-form-label-sm">Phone</label>
                 <div class="col-md-9">
-                    <input type="number" class="form-control form-control-sm @error('phone') is-invalid @enderror" id="phone" placeholder="Example: 017xxxxxxxx"  name="phone" value="{{ old('phone') }}">
-                    @error('phone')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text" id="addon-wrapping">+88</span>
+                        {{-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"> --}}
+                        <input type="number" class="form-control form-control-sm @error('phone') is-invalid @enderror" id="phone" placeholder="Example: 017xxxxxxxx"  name="phone" value="{{ old('phone') }}">
+                        @error('phone')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
@@ -68,15 +72,15 @@
                 <label for="gender" class="col-md-3 col-form-label col-form-label-sm">Gender</label>
                 <div class="col-md-9">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="male" value="Male">
+                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="male" value="Male" @if (old('gender') == 'Male') checked @endif>
                         <label class="form-check-label" for="male">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="female" value="Female">
+                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="female" value="Female" @if (old('gender') == 'Female') checked @endif>
                         <label class="form-check-label" for="female">Female</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="others" value="Others">
+                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="others" value="Others" @if (old('gender') == 'Others') checked @endif>
                         <label class="form-check-label" for="others">Others</label>
                     </div>
                 </div>
@@ -85,7 +89,8 @@
             <div class="row mb-3">
                 <label for="present_address" class="col-md-3 col-form-label col-form-label-sm">Present Address</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-sm @error('present_address') is-invalid @enderror" id="present_address" placeholder="Enter Your Present Address"  name="present_address" value="{{ old('present_address') }}">
+                    <textarea rows="2" class="form-control form-control-sm @error('present_address') is-invalid @enderror" id="present_address" placeholder="Enter Your Present Address"  name="present_address">{{ old('present_address') }}</textarea>
+                    {{-- <input type="text" class="form-control form-control-sm @error('present_address') is-invalid @enderror" id="present_address" placeholder="Enter Your Present Address"  name="present_address" value="{{ old('present_address') }}"> --}}
                     @error('present_address')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -95,7 +100,8 @@
             <div class="row mb-3">
                 <label for="permanent_address" class="col-md-3 col-form-label col-form-label-sm">Permanent Address</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-sm @error('permanent_address') is-invalid @enderror" id="permanent_address" placeholder="Enter Your Permanent Address"  name="permanent_address" value="{{ old('permanent_address') }}">
+                    <textarea rows="2" class="form-control form-control-sm @error('permanent_address') is-invalid @enderror" id="permanent_address" placeholder="Enter Your Permanent Address"  name="permanent_address">{{ old('permanent_address') }}</textarea>
+                    {{-- <input type="text" class="form-control form-control-sm @error('permanent_address') is-invalid @enderror" id="permanent_address" placeholder="Enter Your Permanent Address"  name="permanent_address" value="{{ old('permanent_address') }}"> --}}
                     @error('permanent_address')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

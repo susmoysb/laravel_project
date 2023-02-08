@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
             'password' => ['required', 'min:8', 'confirmed'],
             'password_confirmation' => ['required'],
             'phone' => ['required', 'numeric', 'digits:11', 'regex:/^([0][1]+)/'],
-            'gender' => ['required', 'in:Male, Female, Others'],
+            'gender' => ['required', Rule::in(['Male', 'Female', 'Others'])],
             'present_address' => ['required'],
             'permanent_address' => ['required'],
             'company' => ['required'],

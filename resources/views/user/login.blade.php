@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container-lg col-lg-6 user_create px-4">
+    <div class="container-lg col-lg-6 user_create px-4 login_form">
 
         <div class="form-header text-center mb-5 mt-2 pt-2">
             <h1>Login Form</h1>
